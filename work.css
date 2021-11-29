@@ -1,6 +1,6 @@
 body{
   background-color: #3a3a3a;
-  color: #fff;
+  color: #e2bdbd;
   font-size: 30px;
   font-family: 'PT Sans Narrow', sans-serif;
   letter-spacing: 2px;
@@ -26,12 +26,16 @@ body{
   border-radius: 5px;
   padding: 0 10px;
 }
+.input::placeholder{
+  color: #dfdfdf;
+  font-size: 22px;
+}
 .acent-color{
   background-color: #625251;
 }
 .button{
-  background-color: coral;
-  color: #fff;
+  background-color: #bb775e;
+  color: #ebd4d4;
   border-radius: 5px;
   padding: 10px 25px 12px;
   line-height: 100%;
@@ -39,8 +43,23 @@ body{
 }
 
 .button:active{
-  background-color: #c56542;
+  background-color: #9a6450;
   transform: scale(0.99);
+}
+
+.erorr{
+  background-color: #ff1403;
+  color: #fff;
+}
+
+.unselectable {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
 }
 
 @media(max-width: 500px){
@@ -60,3 +79,4 @@ body{
     font-size: 26px;
   }
 }
+
