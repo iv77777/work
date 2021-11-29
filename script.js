@@ -43,12 +43,20 @@ function miscalculation(){
   const priceKm = consumption.value * (mileageKm / 100) * gasPrice.value;
   // -----------------------------------------------------------
   
-  earned.innerHTML = uklon + bolt + v838 + Number(privat.value) + cash - priceKm - WarmingUpTheCar.value;
-
-  // console.log("uklon",uklon);
-  // console.log('bolt',bolt);
-  // console.log("838",v838);
-  // console.log("Зозмен",cash);
-  // console.log("Газ",priceKm);
-  // console.log(earned);
+  earned.innerHTML = Math.round(uklon + bolt + v838 + Number(privat.value) + cash - priceKm - WarmingUpTheCar.value);
 }
+
+function validity(){
+  // находим все импуты
+  const inputs = document.querySelectorAll('input');
+  // для каждого инпута
+  inputs.forEach(function (input) {
+  // при фокусе на input убераем placeholder
+  input.onfocus = function () {
+     input.placeholder = '';
+    };
+  });
+}
+
+
+validity();
