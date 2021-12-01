@@ -78,5 +78,11 @@ function reverseValue() {
 
   cashBefore.value = cashAfter.value;
   cashAfter.value = '';
+
+  idMileage.value = '';
+
+  privat.value = '';
+
+  earned.innerHTML = '--';
   
 }
