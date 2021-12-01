@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="work.css">
 </head>
 
-<body>
+<body class="unselectable">
 
   <div class="container">
 
@@ -23,49 +23,55 @@
     </div>
     <div class="paragraph">
       <span>Цена за 1лтр газа</span>
-      <input class="input" id="gas-price" type="tel" value="18.10">
+      <input class="input" id="gas-price" type="tel" value="17.7">
     </div>
     <div class="paragraph">
       <span>Прогрев автомобиля</span>
       <input class="input" id="Warming-up-the-car" type="tel" value="15">
     </div>
-
     <br>
+     
+    <div class="block-reverse">
 
-    <div class="indicators">
-      <div class="indicator paragraph">
-        <span>Uklon</span>
-        <div class="div">
-          <input class="input" id="uklon-before" type="tel" placeholder="До работы">
-          <input class="input" id="uklon-after" type="tel" placeholder="После">
+      <button class="button button-reverse" id="button-reverse">&#8592; Реверс</button>
+
+      <div class="indicators">
+        <div class="indicator paragraph">
+          <span>Uklon</span>
+          <div class="div">
+            <input class="input" id="uklon-before" type="tel" placeholder="До работы">
+            <input class="input" id="uklon-after" type="tel" placeholder="После">
+          </div>
         </div>
-      </div>
-      <div class="indicator paragraph">
-        <span>Bolt</span>
-        <div>
-          <input class="input" id="bolt-before" type="tel" placeholder="До работы">
-          <input class="input" id="bolt-after" type="tel" placeholder="После">
+        <div class="indicator paragraph">
+          <span>Bolt</span>
+          <div>
+            <input class="input" id="bolt-before" type="tel" placeholder="До работы">
+            <input class="input" id="bolt-after" type="tel" placeholder="После">
+          </div>
         </div>
-      </div>
-      <div class="indicator paragraph">
-        <span>838</span>
-        <div>
-          <input class="input" id="before838" type="tel" placeholder="До работы">
-          <input class="input" id="after838" type="tel" placeholder="После">
+        <div class="indicator paragraph">
+          <span>838</span>
+          <div>
+            <input class="input" id="before838" type="tel" placeholder="До работы">
+            <input class="input" id="after838" type="tel" placeholder="После">
+          </div>
         </div>
-      </div>
-      <div class="indicator paragraph">
-        <span>Розмен</span>
-        <div>
-          <input class="input" id="cash-before" type="tel" placeholder="До работы">
-          <input class="input" id="cash-after" type="tel" placeholder="После">
+        <div class="indicator paragraph margin-bottom-0">
+          <span>Розмен</span>
+          <div>
+            <input class="input" id="cash-before" type="tel" placeholder="До работы">
+            <input class="input" id="cash-after" type="tel" placeholder="После">
+          </div>
         </div>
+
       </div>
+    </div>
+
       <div class="indicator paragraph acent-color">
-        <span>Мили</span>
+        <span>Проехал миль</span>
         <div>
-          <input class="input" id="before-mileage" type="tel" placeholder="До работы">
-          <input class="input" id="after-mileage" type="tel" placeholder="После">
+          <input class="input" id="idMileage" type="tel" placeholder="Всего">
         </div>
       </div>
       <div class="indicator paragraph acent-color">
@@ -74,13 +80,12 @@
           <input class="input" id="privat" type="tel">
         </div>
       </div>
-    </div>
 
     <br>
 
-    <button class="button unselectable">Рассчитать</button>
+    <button class="button" id="button">Рассчитать</button>
     <span>Заработал:</span>
-    <span id="earned">--</span>
+    <span id="earned" class="acent">--</span>
     <span>грн.</span>
 
   </div>

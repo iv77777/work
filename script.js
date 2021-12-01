@@ -14,20 +14,25 @@ const After838 = document.querySelector('#after838');
 const cashBefore = document.querySelector('#cash-before');
 const cashAfter = document.querySelector('#cash-after');
 
-const beforeMileage = document.querySelector('#before-mileage');
-const afterMileage = document.querySelector('#after-mileage');
+const idMileage = document.querySelector('#idMileage');
 
 const privat = document.querySelector('#privat');
 
-const button = document.querySelector('.button');
+const button = document.querySelector('#button');
+const buttonReverse = document.querySelector('#button-reverse');
 
 const earned = document.querySelector('#earned');
 
 
 
-
+// Шлушаем клик по кнопке Рассчитать и при клики запускаем фуекцию miscalculation
 button.addEventListener('click', miscalculation);
 
+// Шлушаем клик по кнопке Реверс и при клики запускаем фуекцию reverseValue
+buttonReverse.addEventListener('click', reverseValue);
+
+
+// Рсчитует заработок
 function miscalculation(){
 
   const uklon = uklonAfter.value - uklonBefore.value;
@@ -36,16 +41,17 @@ function miscalculation(){
   const cash = cashAfter.value - cashBefore.value;
 
   // -----------------------------------------------------------
-  // розрахунок по заправке газа
-  const mileage = afterMileage.value - beforeMileage.value;
-  const mileageKm = mileage * 1.60934;
+  // переводим мили в километры
+  const mileageKm = idMileage.value * 1.60934;
    // витрата на газ
   const priceKm = consumption.value * (mileageKm / 100) * gasPrice.value;
   // -----------------------------------------------------------
   
+  // Высчитует м виводит на страницу мой зароботок
   earned.innerHTML = Math.round(uklon + bolt + v838 + Number(privat.value) + cash - priceKm - WarmingUpTheCar.value);
 }
 
+// при фокусе на input убераем placeholder
 function validity(){
   // находим все импуты
   const inputs = document.querySelectorAll('input');
@@ -57,6 +63,20 @@ function validity(){
     };
   });
 }
-
-
 validity();
+
+// миняет value в инпутах
+function reverseValue() {
+  uklonBefore.value = uklonAfter.value;
+  uklonAfter.value = '';
+  
+  boltBefore.value = boltAfter.value;
+  boltAfter.value = '';
+
+  Before838.value = After838.value;
+  After838.value = '';
+
+  cashBefore.value = cashAfter.value;
+  cashAfter.value = '';
+  
+}

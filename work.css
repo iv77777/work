@@ -6,6 +6,8 @@ body{
   letter-spacing: 2px;
 }
 
+
+
 .container{
   max-width: 500px;
   padding: 15px 15px 400px;
@@ -19,6 +21,10 @@ body{
   padding-left: 5px;
   display: flex;
   justify-content: space-between;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+}
+.block-reverse .paragraph{
+  box-shadow: none;
 }
 .input{
   text-align: center;
@@ -47,9 +53,23 @@ body{
   transform: scale(0.99);
 }
 
-.erorr{
-  background-color: #ff1403;
-  color: #fff;
+.block-reverse{
+  background-color: #625251;
+  padding: 5px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+   box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+}
+.button-reverse{
+  margin-bottom: 15px;
+}
+
+
+.acent{
+  background-color: #e3c5c5;
+  padding: 0 5px;
+  border-radius: 5px;
+  color: #3e2723;
 }
 
 .unselectable {
@@ -60,6 +80,11 @@ body{
   -ms-user-select: none;       /* Internet Explorer/Edge */
   user-select: none;           /* Non-prefixed version, currently
                                   not supported by any browser */
+}
+
+
+.margin-bottom-0{
+  margin-bottom: 0;
 }
 
 @media(max-width: 500px){
