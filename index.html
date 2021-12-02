@@ -29,11 +29,26 @@
       <span>Прогрев автомобиля</span>
       <input class="input" id="Warming-up-the-car" type="tel" value="15">
     </div>
+
+    <div class="indicator paragraph acent-color">
+      <span>Проехал миль</span>
+      <div>
+        <input class="input" id="idMileage" type="tel" placeholder="Всего">
+      </div>
+    </div>
+
     <br>
      
     <div class="block-reverse">
 
-      <button class="button button-reverse" id="button-reverse">&#8592; Реверс</button>
+      <button class="button" id="button-reverse">
+        <svg class="arrow" viewBox="0 0 100 85">
+          <polygon
+            points="58.263,0.056 100,41.85 58.263,83.641 30.662,83.641 62.438,51.866 0,51.866 0,31.611 62.213,31.611 30.605,0 58.263,0.056" />
+        </svg>
+        <!-- &#8592; -->
+         <span>Реверс</span> 
+      </button>
 
       <div class="indicators">
         <div class="indicator paragraph">
@@ -57,7 +72,7 @@
             <input class="input" id="after838" type="tel" placeholder="После">
           </div>
         </div>
-        <div class="indicator paragraph margin-bottom-0">
+        <div class="indicator paragraph">
           <span>Розмен</span>
           <div>
             <input class="input" id="cash-before" type="tel" placeholder="До работы">
@@ -65,21 +80,21 @@
           </div>
         </div>
 
+        <div class="indicator paragraph">
+          <span>Наличка</span>
+          <div>
+            <input class="input" id="cashbox" type="tel">
+          </div>
+        </div>
+
+        <div class="indicator paragraph margin-bottom-0">
+          <span>Приват</span>
+          <div>
+            <input class="input" id="privat" type="tel">
+          </div>
+        </div>
       </div>
     </div>
-
-      <div class="indicator paragraph acent-color">
-        <span>Проехал миль</span>
-        <div>
-          <input class="input" id="idMileage" type="tel" placeholder="Всего">
-        </div>
-      </div>
-      <div class="indicator paragraph acent-color">
-        <span>Приват</span>
-        <div>
-          <input class="input" id="privat" type="tel">
-        </div>
-      </div>
 
     <br>
 
@@ -93,3 +108,5 @@
 <script src="script.js"></script>
 </body>
 </html>
+
+

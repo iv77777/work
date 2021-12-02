@@ -40,6 +40,10 @@ body{
   background-color: #625251;
 }
 .button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
   background-color: #bb775e;
   color: #ebd4d4;
   border-radius: 5px;
@@ -47,6 +51,7 @@ body{
   line-height: 100%;
   margin-right: 25px;
   box-shadow: 0 0 10px rgb(0 0 0 / 50%);
+  min-width: 210px;
 }
 
 .button:active{
@@ -54,16 +59,21 @@ body{
   transform: scale(0.99);
 }
 
+.arrow{
+  transform: rotate(180deg);
+  max-width: 18px;
+  margin-right: 10px;
+  fill: #dfdfdf;
+  margin-bottom: -2px;
+}
 .block-reverse{
   background-color: #625251;
   padding: 5px;
   margin-bottom: 15px;
   border-radius: 5px;
-   box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+  box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
 }
-.button-reverse{
-  margin-bottom: 15px;
-}
+
 
 
 .acent{
@@ -88,13 +98,14 @@ body{
   margin-bottom: 0;
 }
 
+
 @media(max-width: 500px){
   .paragraph{
     flex-direction: column;
     padding-bottom: 5px;
   }
   .button{
-    display: block;
+    /* display: block; */
     width: 100%;
     margin-bottom: 20px;
   }

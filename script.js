@@ -17,6 +17,7 @@ const cashAfter = document.querySelector('#cash-after');
 const idMileage = document.querySelector('#idMileage');
 
 const privat = document.querySelector('#privat');
+const cashbox = document.querySelector('#cashbox');
 
 const button = document.querySelector('#button');
 const buttonReverse = document.querySelector('#button-reverse');
@@ -25,7 +26,7 @@ const earned = document.querySelector('#earned');
 
 
 
-// Шлушаем клик по кнопке Рассчитать и при клики запускаем фуекцию miscalculation
+// Cлушаем клик по кнопке Рассчитать и при клики запускаем фуекцию miscalculation
 button.addEventListener('click', miscalculation);
 
 // Шлушаем клик по кнопке Реверс и при клики запускаем фуекцию reverseValue
@@ -47,9 +48,9 @@ function miscalculation(){
   const priceKm = consumption.value * (mileageKm / 100) * gasPrice.value;
   // -----------------------------------------------------------
   
-  // Высчитует м виводит на страницу мой зароботок
-  earned.innerHTML = Math.round(uklon + bolt + v838 + Number(privat.value) + cash - priceKm - WarmingUpTheCar.value);
-}
+  // Высчитует и виводит на страницу мой зароботок
+  earned.innerHTML = Math.round(uklon + bolt + v838 + Number(privat.value) + Number(cashbox.value) + cash - priceKm - WarmingUpTheCar.value);
+} 
 
 // при фокусе на input убераем placeholder
 function validity(){
@@ -80,6 +81,8 @@ function reverseValue() {
   cashAfter.value = '';
 
   idMileage.value = '';
+
+  cashbox.value = '';
 
   privat.value = '';
 
