@@ -29,56 +29,65 @@ const earned = document.querySelector('#earned');
 // Cлушаем клик по кнопке Рассчитать и при клики запускаем фуекцию miscalculation
 button.addEventListener('click', miscalculation);
 
-// Шлушаем клик по кнопке Реверс и при клики запускаем фуекцию reverseValue
+// Слушаем клик по кнопке Реверс и при клики запускаем фуекцию reverseValue
 buttonReverse.addEventListener('click', reverseValue);
 
 
 // Рсчитует заработок
 function miscalculation(){
+  // Если мили введены то делаем прощот
+  if (idMileage.value){
+    if (idMileage.classList.contains('arror')){
+      idMileage.classList.remove('arror');
+    }
+    const uklon = uklonAfter.value - uklonBefore.value;
+    const bolt = boltAfter.value - boltBefore.value;
+    const v838 = after838.value - before838.value;
+    const cash = cashAfter.value - cashBefore.value;
 
-  const uklon = uklonAfter.value - uklonBefore.value;
-  const bolt = boltAfter.value - boltBefore.value;
-  const v838 = after838.value - before838.value;
-  const cash = cashAfter.value - cashBefore.value;
+    // переводим мили в километры
+    const mileageKm = idMileage.value * 1.60934;
+    // витрата на газ
+    const priceKm = consumption.value * (mileageKm / 100) * gasPrice.value;
 
-  // -----------------------------------------------------------
-  // переводим мили в километры
-  const mileageKm = idMileage.value * 1.60934;
-   // витрата на газ
-  const priceKm = consumption.value * (mileageKm / 100) * gasPrice.value;
-  // -----------------------------------------------------------
+
+    // Высчитует и виводит на страницу мой зароботок
+    earned.innerHTML = Math.round(uklon + bolt + v838 + Number(privat.value) + Number(cashbox.value) + cash - priceKm - WarmingUpTheCar.value);
+  }else{
+    // Если мили не введены то выдаем ошыбку
+    idMileage.classList.add('arror');
+    earned.innerHTML = '--';
+    idMileage.placeholder = 'Введите мили';
+  }
   
-  // Высчитует и виводит на страницу мой зароботок
-  earned.innerHTML = Math.round(uklon + bolt + v838 + Number(privat.value) + Number(cashbox.value) + cash - priceKm - WarmingUpTheCar.value);
 } 
 
-// при фокусе на input убераем placeholder
-function validity(){
-  // находим все импуты
-  const inputs = document.querySelectorAll('input');
-  // для каждого инпута
-  inputs.forEach(function (input) {
-  // при фокусе на input убераем placeholder
-  input.onfocus = function () {
-     input.placeholder = '';
-    };
-  });
-}
-validity();
-
-// миняет value в инпутах
+// миняет value в инпутах при нажатии на кнорку реверс
 function reverseValue() {
-  uklonBefore.value = uklonAfter.value;
-  uklonAfter.value = '';
+  idMileage.placeholder = 'Всего';
+  if (idMileage.classList.contains('arror')) {
+    idMileage.classList.remove('arror');
+  }
+
+  if (uklonAfter.value){
+    uklonBefore.value = uklonAfter.value;
+    uklonAfter.value = '';
+  }
   
-  boltBefore.value = boltAfter.value;
-  boltAfter.value = '';
+  if (boltAfter.value){
+    boltBefore.value = boltAfter.value;
+    boltAfter.value = '';
+  }
 
-  Before838.value = After838.value;
-  After838.value = '';
+  if (After838.value){
+    Before838.value = After838.value;
+    After838.value = '';
+  }
 
-  cashBefore.value = cashAfter.value;
-  cashAfter.value = '';
+  if (cashAfter.value){
+    cashBefore.value = cashAfter.value;
+    cashAfter.value = '';
+  }
 
   idMileage.value = '';
 
@@ -89,3 +98,12 @@ function reverseValue() {
   earned.innerHTML = '--';
   
 }
+
+
+// при фокусе на input убераем error и миняем плесхолдер
+idMileage.onfocus = function () {
+  if (idMileage.classList.contains('arror')) {
+    idMileage.classList.remove('arror');
+    idMileage.placeholder = 'Всего';
+  }
+};
