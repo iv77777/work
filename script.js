@@ -23,7 +23,7 @@ const button = document.querySelector('#button');
 const buttonReverse = document.querySelector('#button-reverse');
 
 const earned = document.querySelector('#earned');
-
+const earnedPosition = document.querySelector('#earnedPosition');
 
 
 // Cлушаем клик по кнопке Рассчитать и при клики запускаем фуекцию miscalculation
@@ -107,3 +107,26 @@ idMileage.onfocus = function () {
     idMileage.placeholder = 'Всего';
   }
 };
+
+
+
+// делает фиксированим елемент в котором выводим зароботок
+function earnedFixed(){
+  // ростояния от верха страницы к "грн"
+  let topDocumentheightElement = earnedPosition.getBoundingClientRect().top;
+  // высота окна браузера
+  let clientHeight = document.documentElement.clientHeight;
+  // высота елемента в котором выводим зароботок
+  let heightElement = earned.offsetHeight;
+
+  if (topDocumentheightElement > clientHeight - heightElement) {
+    earned.classList.add('active');
+  } else {
+    earned.classList.remove('active');
+  }
+}
+
+// при прокрутке странице запускаем функцию earnedFixed
+window.addEventListener('scroll', earnedFixed);
+// делает фиксированим елемент в котором выводим зароботок при запуске странице
+earnedFixed();
