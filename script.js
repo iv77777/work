@@ -26,6 +26,58 @@ const earned = document.querySelector('#earned');
 const earnedPosition = document.querySelector('#earnedPosition');
 
 
+
+// ********************<< localStorage >>***********************************************
+let usObject = [{ uklonAfter: '', after838: '', boltAfter: '', cashAfter: '', gasPrice: ''}];
+
+class LocalStorageUs {
+  // Получает обект з LocalStorage
+  getUsObject(keyName) {
+    // Получает обект з LocalStorage
+    const keyUs = localStorage.getItem(keyName);
+
+    // если есть обект в localStorage
+    if (keyUs !== null) {
+      //переобразовуем из строки в масив и возвращаем
+      return JSON.parse(keyUs);
+    }
+    // если localStorage пустой то возвращам пустой масив
+    return [];
+  }
+
+  //добавляет обект в LocalStorage
+  putUsObject(keyName) {
+    // переобразовуем масив usObject в строку и записываем в usObjectText
+    let usObjectText = JSON.stringify(usObject);
+    // добавляем usObjectText в localStorage
+    localStorage.setItem(keyName, usObjectText)
+  }
+}
+
+const localStorageUs = new LocalStorageUs();
+
+// получаем поля з localStorage
+const objectLocalStorage = localStorageUs.getUsObject("keyUsWorkMile");
+
+// если localStorage есть записаные даные то подставляем их на страницу
+if (objectLocalStorage.length > 0) {
+  uklonBefore.value = objectLocalStorage[0].uklonAfter;
+  Before838.value = objectLocalStorage[0].after838;
+  boltBefore.value = objectLocalStorage[0].boltAfter;
+  cashBefore.value = objectLocalStorage[0].cashAfter;
+  gasPrice.value = objectLocalStorage[0].gasPrice;
+}
+
+// поличаем л/100 з localStorage
+const usObjectMile = localStorageUs.getUsObject("usObjectMile");
+
+// если usObjectKm есть записаные даные то подставляем их на страницу
+if (usObjectMile.length > 0) {
+  consumption.value = usObjectMile[0].valueKm;
+}
+// ********************<< // localStorage >>***************************************
+
+
 // Cлушаем клик по кнопке Рассчитать и при клики запускаем фуекцию miscalculation
 button.addEventListener('click', miscalculation);
 
@@ -53,6 +105,28 @@ function miscalculation(){
 
     // Высчитует и виводит на страницу мой зароботок
     earned.innerHTML = Math.round(uklon + bolt + v838 + Number(privat.value) + Number(cashbox.value) + cash - priceKm - WarmingUpTheCar.value);
+
+
+    // *****<< localStorage >>********
+
+    let usObjectMile = [{ valueKm: consumption.value}];
+    // переобразовуем масив usObjectMile в строку и записываем в usObjectText
+    let usObjectTextMile = JSON.stringify(usObjectMile);
+    // добавляем usObjectText в localStorage
+    localStorage.setItem("usObjectMile", usObjectTextMile)
+
+    // добавляем значения для localStorage
+    usObject[0].uklonAfter = uklonAfter.value;
+    usObject[0].after838 = After838.value;
+    usObject[0].boltAfter = boltAfter.value;
+    usObject[0].cashAfter = cashAfter.value;
+    usObject[0].gasPrice = gasPrice.value;
+
+    // добавляем в localStorageUs
+    localStorageUs.putUsObject("keyUsWorkMile");
+
+    // *****<< localStorage >>********
+
   }else{
     // Если мили не введены то выдаем ошыбку
     idMileage.classList.add('arror');
@@ -95,8 +169,7 @@ function reverseValue() {
 
   privat.value = '';
 
-  earned.innerHTML = '--';
-  
+  earned.innerHTML = '--'; 
 }
 
 
